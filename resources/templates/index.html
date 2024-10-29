@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>首页</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/layui/css/layui.css}"/>
+        <script th:src="@{/js/jquery/jquery-3.6.4.min.js}"></script>
+        <script th:src="@{/layui/layui.js}"></script>
+    </head>
+    <body>
+        <header>
+            <div>沙威玛客户通讯录</div>
+        </header>
+        <div class="layout">
+            <div class="layui-panel">
+                <ul class="layui-menu" id="docDemoMenu">
+                    <li class="layui-menu-item-group layui-menu-item-down" lay-options="{type: 'group'}">
+                        <ul>
+                            <li class="menu" id="/contacts/contactsList">
+                                <div class="layui-menu-body-title">我的通讯录</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="main">
+                <iframe id="main"></iframe>
+            </div>
+        </div>
+        <script>
+            $(function () {
+                var layer = layui.layer
+                $('.menu').on('click', function () {
+                    $('#main').attr('src', $(this).attr('id'))
+                })
+            })
+        </script>
+        <style>
+            #nav {
+                width: 200px;
+                overflow: auto;
+            }
+            #main {
+                border: none;
+                height: 100%;
+                width: 100%;
+            }
+            .main {
+                flex: 1;
+                overflow: auto;
+            }
+        </style>
+    </body>
+</html>
